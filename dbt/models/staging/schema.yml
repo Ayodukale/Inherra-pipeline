@@ -1,0 +1,347 @@
+version: 2
+models:
+  - name: stg_probate_filings_cleaned
+    description: Schema auto-generated from REFERENCE__JSON_KEYS
+    columns:
+      - name: account_status_text
+        description: ''
+        tests: []
+      - name: account_to_search
+        description: ''
+        tests: []
+      - name: cleaned_probate_lead_decedent_first
+        description: ''
+        tests: []
+      - name: cleaned_probate_lead_decedent_last
+        description: ''
+        tests: []
+      - name: cleaned_rp_party_first_name
+        description: ''
+        tests: []
+      - name: cleaned_rp_party_last_name
+        description: ''
+        tests: []
+      - name: contact_target_tier
+        description: ''
+        tests: []
+      - name: date_proximity_score
+        description: ''
+        tests: []
+      - name: days_apart
+        description: ''
+        tests: []
+      - name: error
+        description: ''
+        tests: []
+      - name: exemption_code
+        description: ''
+        tests: []
+      - name: hcad_account
+        description: ''
+        tests: []
+      - name: hcad_account_summary
+        description: ''
+        tests: []
+      - name: hcad_address_summary
+        description: ''
+        tests: []
+      - name: hcad_appraised_history_json
+        description: ''
+        tests: []
+      - name: hcad_appraised_value_detail
+        description: ''
+        tests: []
+      - name: hcad_appraised_value_summary
+        description: ''
+        tests: []
+      - name: hcad_bedrooms
+        description: ''
+        tests: []
+      - name: hcad_best_property_fit_score
+        description: ''
+        tests: []
+      - name: hcad_building_area_count
+        description: ''
+        tests: []
+      - name: hcad_building_data_json
+        description: ''
+        tests: []
+      - name: hcad_detail_url
+        description: ''
+        tests: []
+      - name: hcad_detail_url_visited
+        description: ''
+        tests: []
+      - name: hcad_exterior_wall
+        description: ''
+        tests: []
+      - name: hcad_final_tier_hit
+        description: ''
+        tests: []
+      - name: hcad_foundation_type
+        description: ''
+        tests: []
+      - name: hcad_full_bathrooms
+        description: ''
+        tests: []
+      - name: hcad_garage_sqft
+        description: ''
+        tests: []
+      - name: hcad_grade_adjustment
+        description: ''
+        tests: []
+      - name: hcad_half_bathrooms
+        description: ''
+        tests: []
+      - name: hcad_heating_ac
+        description: ''
+        tests: []
+      - name: hcad_impr_total_sqft
+        description: ''
+        tests: []
+      - name: hcad_improvement_market_value
+        description: ''
+        tests: []
+      - name: hcad_land_data_json
+        description: ''
+        tests: []
+      - name: hcad_land_line_count
+        description: ''
+        tests: []
+      - name: hcad_land_market_value
+        description: ''
+        tests: []
+      - name: hcad_land_market_value_total
+        description: ''
+        tests: []
+      - name: hcad_legal_desc_detail
+        description: ''
+        tests: []
+      - name: hcad_list_page_summary_rank_score
+        description: ''
+        tests: []
+      - name: hcad_lot_sqft_total
+        description: ''
+        tests: []
+      - name: hcad_mailing_address
+        description: ''
+        tests: []
+      - name: hcad_market_value_detail
+        description: ''
+        tests: []
+      - name: hcad_market_value_summary
+        description: ''
+        tests: []
+      - name: hcad_other_characteristics_json
+        description: ''
+        tests: []
+      - name: hcad_owner_full_name
+        description: ''
+        tests: []
+      - name: hcad_owner_match_type
+        description: ''
+        tests: []
+      - name: hcad_owner_summary
+        description: ''
+        tests: []
+      - name: hcad_physical_condition
+        description: ''
+        tests: []
+      - name: hcad_search_status
+        description: ''
+        tests: []
+      - name: hcad_site_address
+        description: ''
+        tests: []
+      - name: hcad_sqft_summary
+        description: ''
+        tests: []
+      - name: hcad_total_base_sqft
+        description: ''
+        tests: []
+      - name: hcad_total_structure_sqft
+        description: ''
+        tests: []
+      - name: hcad_zip_summary
+        description: ''
+        tests: []
+      - name: hctax_account
+        description: ''
+        tests: []
+      - name: hctax_appraised_value
+        description: ''
+        tests: []
+      - name: hctax_improvements_market_value
+        description: ''
+        tests: []
+      - name: hctax_land_market_value
+        description: ''
+        tests: []
+      - name: hctax_legal_desc_full
+        description: ''
+        tests: []
+      - name: hctax_owner_full_name
+        description: ''
+        tests: []
+      - name: hctax_owner_mailing_address
+        description: ''
+        tests: []
+      - name: hctax_site_address
+        description: ''
+        tests: []
+      - name: hctax_total_market_value
+        description: ''
+        tests: []
+      - name: instrument_weight
+        description: ''
+        tests: []
+      - name: is_owner_grantee
+        description: ''
+        tests: []
+      - name: is_owner_grantor
+        description: ''
+        tests: []
+      - name: is_potential_decedent_match
+        description: ''
+        tests: []
+      - name: match_confidence_level
+        description: ''
+        tests: []
+      - name: match_score_total
+        description: ''
+        tests: []
+      - name: name_first_score
+        description: ''
+        tests: []
+      - name: name_last_score
+        description: ''
+        tests: []
+      - name: needs_review_flag
+        description: ''
+        tests: []
+      - name: owner_contact_name
+        description: ''
+        tests: []
+      - name: owner_contact_rationale
+        description: ''
+        tests: []
+      - name: party_role_score
+        description: ''
+        tests: []
+      - name: prior_years_taxes_due
+        description: ''
+        tests: []
+      - name: probate_lead_case_number
+        description: ''
+        tests: []
+      - name: probate_lead_county
+        description: ''
+        tests: []
+      - name: probate_lead_decedent_first
+        description: ''
+        tests: []
+      - name: probate_lead_decedent_last
+        description: ''
+        tests: []
+      - name: probate_lead_filing_date
+        description: ''
+        tests: []
+      - name: probate_lead_signal_strength
+        description: ''
+        tests: []
+      - name: probate_lead_status
+        description: ''
+        tests: []
+      - name: probate_lead_subtype
+        description: ''
+        tests: []
+      - name: probate_lead_type_desc
+        description: ''
+        tests: []
+      - name: probate_name
+        description: ''
+        tests: []
+      - name: review_reason
+        description: ''
+        tests: []
+      - name: rp_file_date
+        description: ''
+        tests: []
+      - name: rp_file_number
+        description: ''
+        tests: []
+      - name: rp_found_by_search_term
+        description: ''
+        tests: []
+      - name: rp_grantee_full_names_list
+        description: ''
+        tests: []
+      - name: rp_instrument_type
+        description: ''
+        tests: []
+      - name: rp_legal_abstract
+        description: ''
+        tests: []
+      - name: rp_legal_block
+        description: ''
+        tests: []
+      - name: rp_legal_description_text
+        description: ''
+        tests: []
+      - name: rp_legal_lot
+        description: ''
+        tests: []
+      - name: rp_legal_sec
+        description: ''
+        tests: []
+      - name: rp_legal_tract
+        description: ''
+        tests: []
+      - name: rp_party_first_name
+        description: ''
+        tests: []
+      - name: rp_party_full_name
+        description: ''
+        tests: []
+      - name: rp_party_last_name
+        description: ''
+        tests: []
+      - name: rp_party_type
+        description: ''
+        tests: []
+      - name: rp_search_tier
+        description: ''
+        tests: []
+      - name: rp_signal_strength
+        description: ''
+        tests: []
+      - name: score_hcad_vs_best_rp_grantee
+        description: ''
+        tests: []
+      - name: score_hcad_vs_probate
+        description: ''
+        tests: []
+      - name: score_hcad_vs_rp_party
+        description: ''
+        tests: []
+      - name: score_probate_vs_rp_party
+        description: ''
+        tests: []
+      - name: search_tier_weight
+        description: ''
+        tests: []
+      - name: soundex_decedent_last
+        description: ''
+        tests: []
+      - name: soundex_rp_party_last
+        description: ''
+        tests: []
+      - name: statement_date
+        description: ''
+        tests: []
+      - name: taxes_due_by_jan31
+        description: ''
+        tests: []
+      - name: total_current_taxes_due
+        description: ''
+        tests: []

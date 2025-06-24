@@ -1,0 +1,28 @@
+name: 'inherra_dbt'
+version: '1.0.0'
+config-version: 2
+
+# This line tells dbt which connection profile to use.
+# In dbt Cloud, this is managed through the UI, but it's good practice to have it here.
+profile: 'inherra_dbt'
+
+# This tells dbt where to find your models.
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"  # directory for compiled queries
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Add this entire "models:" block to the end of your dbt_project.yml file
+
+models:
+  inherra_dbt: # This must match the 'name:' at the top of this file
+    staging: # This config applies to any models in the 'models/staging/' sub-folder
+      +database: STAGING_DATA_DB # Build in the STAGING database
+      +materialized: table      # Staging models are best as views (faster and cheaper)

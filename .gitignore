@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+.venv_script3/
+env/
+.env
+
+# dbt
+dbt_packages/
+target/
+logs/
+
+# IDE / macOS
+.vscode/
+.idea/
+.DS_Store

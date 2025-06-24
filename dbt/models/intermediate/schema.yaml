@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: int_r_score_features
+    description: "Scoring features for probate leads"
+    columns:
+      - name: r_score_acquisition
+        description: "Total weighted score for property acquisition potential"
+        tests:
+          - not_null
+
+      - name: property_state
+        description: "Extracted two-letter state code from the property’s address"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['TX', 'CA', 'FL', 'MD', 'UNKNOWN']
+
+      - name: mailing_state
+        description: "Extracted two-letter state code from the owner’s mailing address"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['TX', 'CA', 'FL', 'MD', 'UNKNOWN']

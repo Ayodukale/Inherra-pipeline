@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: probate_raw
+    database: RAW_DATA_DB
+    schema: PROBATE
+    tables:
+      - name: PROBATE_FILINGS_ENRICHED
+        columns:
+          - name: RAW_RECORD

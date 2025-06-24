@@ -1,0 +1,5 @@
+packages:
+  # This line must be indented with two spaces
+  - package: dbt-labs/dbt_utils
+    # This line must be indented with four spaces
+    version: 1.1.1

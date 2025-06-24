@@ -1,0 +1,14 @@
+# Local configuration - NEVER commit these
+profiles.yml
+.env
+
+# Python virtual environment
+.venv/
+
+# dbt artifacts
+target/
+dbt_packages/
+logs/
+
+# Mac-specific files
+.DS_Store
