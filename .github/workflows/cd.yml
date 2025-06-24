@@ -1,0 +1,83 @@
+name: dbt Docs Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  deploy-dbt-docs:
+    name: Deploy dbt docs to GitHub Pages
+    runs-on: ubuntu-latest
+    concurrency:
+      group: 'pages'
+      cancel-in-progress: true
+    
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r dbt/scripts/requirements.txt
+          pip install dbt-snowflake
+
+      - name: Configure dbt Profile
+        run: |
+          mkdir -p ~/.dbt
+          cat <<EOF > ~/.dbt/profiles.yml
+          inherra_dbt:
+            target: dev
+            outputs:
+              dev:
+                type: snowflake
+                account: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+                user: ${{ secrets.SNOWFLAKE_USER }}
+                private_key: '${{ secrets.SNOWFLAKE_PRIVATE_KEY }}'
+                role: ${{ secrets.SNOWFLAKE_ROLE }}
+                database: ${{ secrets.SNOWFLAKE_DATABASE }}
+                warehouse: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+                schema: dbt_aodukale 
+                threads: 4
+          EOF
+
+      - name: Generate dbt Docs
+        timeout-minutes: 15
+        run: dbt docs generate
+        working-directory: ./dbt
+
+      - name: Verify docs generation
+        run: |
+          if [ ! -f "target/index.html" ]; then
+            echo "Error: dbt docs not generated properly"
+            exit 1
+          fi
+        working-directory: ./dbt  
+
+      - name: Set up Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dbt/target'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Check deployment status
+        run: echo "Deployed to ${{ steps.deployment.outputs.page_url }}"
