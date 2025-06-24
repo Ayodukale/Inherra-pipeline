@@ -24,7 +24,8 @@ To run this project on a new machine:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/Ayodukale/dbt.git
+    git clone git clone https://github.com/Ayodukale/Inherra-pipeline.git
+
     cd dbt
     ```
 
@@ -32,7 +33,7 @@ To run this project on a new machine:
     ```bash
     python3 -m venv .venv
     source .venv/bin/activate
-    pip install -r scripts/requirements.txt
+    pip install -r dbt/scripts/requirements.txt
     pip install dbt-snowflake
     ```
 

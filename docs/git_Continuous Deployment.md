@@ -37,7 +37,7 @@ The permanent URL for your documentation site is based on your GitHub username a
 
 Your live dbt documentation is now hosted at:
 
-**[https://ayodukale.github.io/dbt](https://ayodukale.github.io/dbt)**
+**[https://ayodukale.github.io/Inherra-pipeline/](https://ayodukale.github.io/Inherra-pipeline/)**
 
 *(Note: After the very first successful deployment, it can sometimes take 5-10 minutes for the site to become live. Subsequent updates are usually faster.)*
 

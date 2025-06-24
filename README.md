@@ -123,26 +123,30 @@ playwright install
 
 ## ⚙️ Setup
 
-```bash
-# 1. Clone the repo
-git clone your-repo-url
+# 1. Clone the entire pipeline repository
+git clone https://github.com/Ayodukale/Inherra-pipeline.git
 
-# 2. Navigate into project
-cd your-repo-folder
+# 2. Navigate into the project
+cd Inherra-pipeline
 
-# 3. Create virtual environment
+# 3. Create virtual environment (Best Practice)
 python3 -m venv venv
 source venv/bin/activate
 
-# 4. Install dependencies
-pip install -r requirements.txt
+# 4. Install all Python dependencies
+pip install -r dbt/scripts/requirements.txt
+pip install dbt-snowflake pandas playwright beautifulsoup4 fuzzywuzzy snowflake-connector-python
 
 # 5. Create your .env file
 cp .env.sample .env
 # Then edit `.env` with Snowflake credentials
 
-# 6. Test dbt connection
+
+# 6. Test dbt connection (must be inside the dbt folder)
+cd dbt
 dbt debug
+
+
 ```
 
 ---
@@ -153,8 +157,7 @@ Instead of manually editing `models/staging/schema.yml`, we use the script:
 
 ```bash
 cd scripts
-python generate_schema_yml.py
-```
+python dbt/scripts/generate_schema_yml.py
 
 This script will:
 - Connect to Snowflake using the `.env` file
@@ -273,27 +276,6 @@ dbt docs serve
     
 *   Begin renovation leads tagging module
     
-
-### 📂 Suggested Folder Tree Update
-
-/dbt
-  /models
-    /reference
-      json_keys_discovered.sql
-    /staging
-      stg_probate_filings_cleaned.sql
-    /intermediate
-      int_r_score_features.sql
-    /production
-      prd_probate_leads.sql
-  /scripts
-    generate_schema_yml.py
-    snowflake_upload.py
-    notion_sync.py
-  /docs
-    claude_integration.md
-    mcp_setup.md
-  schema.yml
 
 
 
