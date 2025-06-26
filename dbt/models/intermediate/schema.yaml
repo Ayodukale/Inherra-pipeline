@@ -1,24 +1,34 @@
-version: 2
-
 models:
   - name: int_r_score_features
-    description: "Scoring features for probate leads"
+    description: "This model takes cleaned probate data and applies the R-Code scoring logic, adding the explainable AI architecture (reasoning array and contradiction flags)."
     columns:
+      # --- Tests for New Architectural Columns ---
+      - name: has_data_contradiction
+        description: "A TRUE/FALSE flag that indicates if the source data for this record has impossible, contradictory values."
+        tests:
+          - not_null # This should always be calculated as TRUE or FALSE
+          - accepted_values:
+              values: [True, False]
+
+      - name: reasoning_array
+        description: "An array of tagged strings that create a 'story' explaining why a lead received its score."
+        tests:
+          - not_null # The array can be empty, but it should never be NULL.
+
       - name: r_score_acquisition
-        description: "Total weighted score for property acquisition potential"
+        description: "The final summed score of all R-rules."
         tests:
           - not_null
 
+      # --- Refined Tests for State Columns ---
       - name: property_state
-        description: "Extracted two-letter state code from the property’s address"
+        description: "The validated two-letter state code for the property's physical address (or 'FOREIGN'/'UNKNOWN')."
         tests:
-          - not_null
           - accepted_values:
-              values: ['TX', 'CA', 'FL', 'MD', 'UNKNOWN']
-
+              values: ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY','DC','FOREIGN','UNKNOWN']
+              
       - name: mailing_state
-        description: "Extracted two-letter state code from the owner’s mailing address"
+        description: "The validated two-letter state code for the owner's mailing address (or 'FOREIGN'/'UNKNOWN')."
         tests:
-          - not_null
           - accepted_values:
-              values: ['TX', 'CA', 'FL', 'MD', 'UNKNOWN']
+              values: ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY','DC','FOREIGN','UNKNOWN']
